@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         btnSubmit.setOnClickListener {
             val prompt = eTPrompt.text.toString().trim()
-            eTPrompt.text.clear()
+
             if (prompt.isEmpty()) {
                 tVResult.text = "Please enter a question."
                 return@setOnClickListener
@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
 
                     val plainText = response.text?.let { it1 -> formatResponse(it1) }
                     tVResult.text = plainText
+                    eTPrompt.text.clear()
 
                     // Show copy button when a response is ready
                     btnCopy.visibility = Button.VISIBLE
